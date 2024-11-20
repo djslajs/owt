@@ -1,4 +1,4 @@
-package com.market.otw.request;
+package com.market.otw.request.user;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.Builder;
@@ -12,6 +12,12 @@ import lombok.ToString;
 public class UserCreate {
     @NotBlank(message = "이름를 입력하세요.")
     private Long id;
+
+    @NotBlank(message = "로그인 아이디를 입력하세요.")
+    private String loginId;
+
+    @NotBlank(message = "패스워드를 입력하세요.")
+    private String password;
 
     @NotBlank(message = "이름를 입력하세요.")
     private String userName;
@@ -28,8 +34,10 @@ public class UserCreate {
     private String mobile;
 
     @Builder
-    public UserCreate(Long id, String userName, String email, String address1, String address2, String mobile) {
+    public UserCreate(Long id, String loginId, String password, String userName, String email, String address1, String address2, String mobile) {
         this.id = id;
+        this.loginId = loginId;
+        this.password = password;
         this.userName = userName;
         this.email = email;
         this.address1 = address1;
